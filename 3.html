@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clip-Path Video Slideshow</title>
+    <link rel="stylesheet" href="style3.css">
+</head>
+<body>
+    <div class="banner">
+        <h2 id="text">MEDHA</h2>
+        <div class="clouds">
+            <img src="assets/cloud1.png" style="--i:1;">
+            <img src="assets/cloud1.png" style="--i:2;">
+            <img src="assets/cloud1.png" style="--i:3;">
+            <img src="assets/cloud1.png" style="--i:4;">
+            <img src="assets/cloud1.png" style="--i:5;">
+            <img src="assets/cloud1.png" style="--i:10;">
+            <img src="assets/cloud1.png" style="--i:9;">
+            <img src="assets/cloud1.png" style="--i:8;">
+        </div>
+    </div>
+    <section>
+        <h2>I AM SORRY T-T</h2>
+        <p>
+            I really love you soo much medha. I know this phase is not easy for us we have been fighting again and again. I know
+             medha it hurt you i saw it and realised by your messages  and i am very sorry for hurting you this much. And medha sach me 
+             me naa roz check krta tha flow and i have tried to end this fight because it was not a right time for you to fight. Medhaa we both know 
+             hmari kitni baar ladayi ho chuki hai kitni baar esa lgta tha ki ab fix nhi ho paayengi cheeze but we fixed it medha we never leaved it represents 
+             how much we love each other, we really have a deep connection medhaa. I am ready to face every bad phase of our relationship but i promise m give up nhi krunga medha, nhii jaane dunga m tujhe. Galtiya huyi h merse
+              i know butt i asure you vo glti fir dubara nhi hongi medha. And medhaa yess being without you for me is also like walking through life
+             with half of myself missing and i can't bear this pain medha. My love is not definable medha but i can represent it with my efforts medhaa. Teri presence bhut matter krti hai mere liye medha orr m nhii kho skta tujhe. 
+             I am really soory for giving you soo much stress that effected your periods and hairs too. it is soo hurtful for me knowing that how much you are going through just because of me.
+             I am trying medha, i want to become best for you and i will medhaa. I don't want to spend my life without you medhaa. I know medha due to my overthinking our relationship is just saved from coming to an end 
+             and i was really very scared medhaa i didn't handled in the way that it should have. Medha i have also considered myself a failure and the thought "failure ke sath kon hi rehna chahegi" was killing it was making me feel so 
+             depressed and scared because i didn't want to loose you but my mind was making me believe that may be you want love me now. i have done so many mistakes medhaa but you still stayed with me it defines that how much you love me not when 
+             you cancelled the plan of meeting i know tune kuchh soch samjh ke hi kra hoga vo orr mujhe ese react nhi krna chahiye tha. I am sorry T-T.
+            <BR></BR> I AM REALLY SORRY MY BABY.
+
+        </p>
+    </section>
+         <a href="4.html">
+               <div class="btn-container">
+        <button class="glow-btn">NEXT</button>
+    </div>
+    </a>
+     <script>
+        let btncontainer = document.querySelector('.btn-container');
+        let button = document.querySelector('.glow-btn');
+        let interval;
+
+        let spawnDistance = 30;
+        function createParticles(){
+            let particles = document.createElement('div');
+            particles.classList.add('particles');
+            let btnWidth = button.offsetWidth;
+            let btnHeight = button.offsetHeight;
+
+            let angle = Math.random() * 2 * Math.PI;
+            let x = btnWidth / 2 + Math.cos(angle)*
+            spawnDistance;
+            let y = btnHeight / 2 + Math.sin(angle)*
+            spawnDistance;
+
+            let dx = Math.cos(angle) * 100;
+            let dy = Math.sin(angle) * 100;
+
+            particles.style.left = `${x}px`;
+            particles.style.top = `${y}px`;
+            particles.style.setProperty('--dx', `${dx}px`);
+            particles.style.setProperty('--dy', `${dy}px`);
+
+            btncontainer.appendChild(particles)
+            setTimeout(() => {
+                particles.remove()
+            },2000)
+        }
+
+        button.addEventListener('mouseenter', () => {
+            interval = setInterval(createParticles,80)
+        })
+        button.addEventListener('mouseleave', () => {
+           clearInterval(interval)
+        })
+    </script>
+    <script type="text/javascript">
+        let text = document.getElementById('text');
+        window.addEventListener('scroll', function(){
+            let value = window.scrollY;
+            text.style.marginBottom = value * 2 + 'px';
+        })
+    </script>
+</body>
+</html>
