@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question</title>
+    <link rel="stylesheet" href="style5.css">
+</head>
+<body>
+            <audio autoplay controls hidden src="assets/Line Without a Hook ( sped up )  Ricky Montgomery.mp3"></audio>
+    <div class="container">
+        <div class="text">
+            <span2 class="ques">I AM SO GLAD MEDHA THAT I HAVE YOU IN MY LIFE</span2>
+        </div>
+    
+     <script>
+        let body = document.querySelector('body');
+        function createParticle(x,y){
+            let particle = document.createElement('div');
+            particle.classList.add('particle');
+
+            particle.style.left = `${x}px`;
+            particle.style.top = `${y}px`;
+
+            let moveX = (Math.random() - 0.5) * 400;
+            let moveY = (Math.random() - 0.5) * 400;
+            
+            particle.style.setProperty('--move-x', `${moveX}px`);
+            particle.style.setProperty('--move-y', `${moveY}px`);
+
+            let size = Math.random() * 6 + 2;
+            particle.style.width= `${size}px`;
+            particle.style.height= `${size}px`;
+
+            let duration = Math.random() * 3+2;
+            particle.style.animationDuration = `${duration}s`;
+            body.appendChild(particle);
+            setTimeout(()=> particle.remove(),duration * 1000)
+        }
+        document.addEventListener('mousemove', (e) => {
+            createParticle(e.clientX,e.clientY);
+        })
+    </script>
+</body>
+</html>

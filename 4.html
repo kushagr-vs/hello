@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Slider Design | X-Dev</title>
+        <link rel="stylesheet" href="style4.css" />
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+            integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+    <body>
+        <div class="container">
+
+            <div class="slide">
+              <div class="item"
+                   style="background-image: url(assets/1.jpg);">
+                    <div class="content">
+                        <div class="name">MY</div>
+                    </div>
+                </div>
+                <div class="item"
+                    style="background-image: url(assets/2.jpg);">
+                    <div class="content">
+                        <div class="name">PRETTY</div>
+                    </div>
+                </div>
+                <div class="item"
+                    style="background-image: url(assets/3.jpg);">
+                    <div class="content">
+                        <div class="name">LOVELY</div>
+                    </div>
+                </div>
+                <div class="item"
+                    style="background-image: url(assets/4.jpg);">
+                    <div class="content">
+                        <div class="name">CUTIE</div>
+                    </div>
+                </div>
+                <div class="item"
+                    style="background-image: url(assets/5.jpg);">
+                    <div class="content">
+                        <div class="name">PATOOTIE</div>
+                    </div>
+                </div>
+                <div class="item"
+                    style="background-image: url(assets/NEW.jpg);">
+                    <div class="content">
+                        <div class="name">GIRL</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="button">
+                <button class="prev"><i
+                        class="fa-solid fa-arrow-left"></i></button>
+                <button class="next"><i
+                        class="fa-solid fa-arrow-right"></i></button>
+            </div>
+
+        </div>
+        <a href="5.html">
+               <div class="btn-container">
+        <button class="glow-btn">NEXT</button>
+    </div>
+    </a>
+     <script>
+        let btncontainer = document.querySelector('.btn-container');
+        let button = document.querySelector('.glow-btn');
+        let interval;
+
+        let spawnDistance = 30;
+        function createParticles(){
+            let particles = document.createElement('div');
+            particles.classList.add('particles');
+            let btnWidth = button.offsetWidth;
+            let btnHeight = button.offsetHeight;
+
+            let angle = Math.random() * 2 * Math.PI;
+            let x = btnWidth / 2 + Math.cos(angle)*
+            spawnDistance;
+            let y = btnHeight / 2 + Math.sin(angle)*
+            spawnDistance;
+
+            let dx = Math.cos(angle) * 100;
+            let dy = Math.sin(angle) * 100;
+
+            particles.style.left = `${x}px`;
+            particles.style.top = `${y}px`;
+            particles.style.setProperty('--dx', `${dx}px`);
+            particles.style.setProperty('--dy', `${dy}px`);
+
+            btncontainer.appendChild(particles)
+            setTimeout(() => {
+                particles.remove()
+            },2000)
+        }
+
+        button.addEventListener('mouseenter', () => {
+            interval = setInterval(createParticles,80)
+        })
+        button.addEventListener('mouseleave', () => {
+           clearInterval(interval)
+        })
+    </script>
+    <script type="text/javascript">
+        let text = document.getElementById('text');
+        window.addEventListener('scroll', function(){
+            let value = window.scrollY;
+            text.style.marginBottom = value * 2 + 'px';
+        })
+    </script>
+    </body>
+</html>
+<script>
+    let next = document.querySelector('.next')
+let prev = document.querySelector('.prev')
+
+next.addEventListener('click', function(){
+    let items = document.querySelectorAll('.item')
+    document.querySelector('.slide').appendChild(items[0])
+})
+
+prev.addEventListener('click', function(){
+    let items = document.querySelectorAll('.item')
+    document.querySelector('.slide').prepend(items[items.length - 1]) // here the length of items = 6
+})
+</script>
+

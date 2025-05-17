@@ -1,0 +1,151 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --gradient-color: linear-gradient(90deg,
+                    hsl(323, 100%, 73%) 0%,
+                    hsl(345, 92%, 55%));
+  --black-color: hsl(225, 15%, 6%);
+  --reflection-color: hsla(48, 30%, 95%, .3);
+  --body-color: #00040d;
+
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "Montserrat", sans-serif;
+  --normal-font-size: 1rem;
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    background-color: var(--body-color);
+    overflow: hidden;
+  }
+  
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #141414;
+}
+.btn-container{
+    position: absolute;
+    display: inline-block;
+}
+.glow-btn{
+    position: relative;
+    padding: 10px 40px;
+    font-size: 18px;
+    border: none;
+    border-radius: 40px;
+    background: #333;
+    color: #fff;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    transition: 0.5s ease;
+    z-index: 1;
+}
+.glow-btn:hover{
+    background: #f4127f;
+    box-shadow: 0 0 50px #f4127f;
+    letter-spacing: 0.2rem;
+}
+.particles{
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #12c3f4;
+    box-shadow: 0 0 20px #1292f4, 0 0 50px #1235f4;
+    pointer-events: none;
+    opacity: 0;
+    animation: animate 2s linear forwards;
+    z-index: 0;
+}
+
+
+@keyframes animate
+{
+    0%{
+        transform: scale(1);
+        opacity: 1;
+    }
+    100%{
+        transform: translate(var(--dx), var(--dy)) scale(0.5);
+        scale: 0;
+    }
+}
+  a {
+    text-decoration: none;
+        position: absolute;
+    display: inline-block;
+    margin-right: 25vh;
+  }
+  .particle{
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: inset 0 0 2px #121212, 0 0 5px #1235f4, 0 0 10px #1235f4;
+    animation: animate linear forwards;
+}
+@keyframes animate
+{
+    0%{
+        opacity: 1;
+        transform: translate(0,0) scale(1);
+    }
+    100%{
+        opacity: 0;
+        transform: translate(var(--move-x) , var(--move-y));
+        scale: (0.5);
+    }
+}
+
+.container{
+    height: 100vh;
+    margin-inline: 1.5rem;
+    display: grid;
+    place-items: center;
+}
+.ques{
+    font-weight: 900;
+    font-size: 3.5rem;
+    position: relative;
+  color: #fff;
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #0054e6, 0 0 40px #0054e6, 0 0 50px #0054e6, 0 0 60px #0054e6, 0 0 70px #0054e6;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #4da6ff, 0 0 40px #4da6ff, 0 0 50px #4da6ff, 0 0 60px #4da6ff, 0 0 70px #4da6ff, 0 0 80px #4da6ff;
+  }
+}
+.text{
+    align-items: center;
+    margin-bottom: 40vh;
+    color: #fff;
+}

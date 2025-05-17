@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Scroll To See Something</title>
+    <link rel="stylesheet" type="text/css" href="style2.css">
+</head>
+<body>
+        <div class="text">
+            <span2 class="ques">I LOVE YOU MORE MERI KUCHDUU PUCHDU</span2>
+        </div>
+     <a href="3.html">
+               <div class="btn-container">
+        <button class="glow-btn">NEXT</button>
+    </div>
+    </a>
+  <div class="container">
+        <div class="heart"></div>
+    </div>
+    <script src="anime.min.js"></script>
+    <script>
+        const container = document.querySelector('.container');
+        for (var i = 1; i <= 100; i++){
+            const hearts = document.createElement('div');
+            hearts.classList.add('heart');
+            container.appendChild(hearts);
+        }
+
+        function animateHearts(){
+            anime({
+                targets: '.heart',
+                translateX: function(){
+                    return anime.random(-700,700);
+                },
+                translateY: function(){
+                    return anime.random(-500,500);
+                },
+                rotate: 45,
+                scale: function(){
+                    return anime.random(1,5);
+                },
+
+                easing: 'easeInOutBack',
+                duration: 3000,
+                delay: anime.stagger(10),
+                complete: animateHearts,
+            })
+        }
+
+        animateHearts()
+    </script>
+</body>
+</html>

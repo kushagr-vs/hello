@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:300,400,500,600,700,800,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.banner{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: url(assets/NEW.jpg);
+    background-size: cover;
+    background-position: bottom;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner #text{
+    position: relative;
+    font-size: 10em;
+    color: #fff;
+    margin-left: -70vh;
+}
+.btn-container{
+    position: absolute;
+    display: inline-block;
+    margin-left: 88vh;
+    margin-top: -10vh;
+}
+.glow-btn{
+    position: relative;
+    padding: 10px 40px;
+    font-size: 18px;
+    border: none;
+    border-radius: 40px;
+    background: #333;
+    color: #fff;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    transition: 0.5s ease;
+    z-index: 1;
+}
+.glow-btn:hover{
+    background: #1292f4;
+    box-shadow: 0 0 50px #12c3f4;
+    letter-spacing: 0.2rem;
+}
+.particles{
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #12c3f4;
+    box-shadow: 0 0 20px #1292f4, 0 0 50px #1235f4;
+    pointer-events: none;
+    opacity: 0;
+    animation: animate 2s linear forwards;
+    z-index: 0;
+}
+.banner .clouds{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.banner .clouds img{
+    position: absolute;
+    bottom: 0;
+    max-width: 100%;
+    animation: animate calc(3s * var(--i)) linear infinite;
+}
+
+@keyframes animate{
+    0%{
+        opacity: 0;
+        transform: scale(1);
+    }
+    25%,75%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        transform: scale(3);
+    }
+}
+section{
+    position: relative;
+    padding: 75px 100px;
+}
+
+section h2{
+    position: relative;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}

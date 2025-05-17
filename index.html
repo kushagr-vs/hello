@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="text">
+            <span2 class="ques">DO YOU STILL LOVE ME?</span2>
+        </div>
+        <a href="2.html">
+               <div class="btn-container">
+        <button class="glow-btn">OBVIOUSLY</button>
+    </div>
+    </a>
+
+    <script>
+        let btncontainer = document.querySelector('.btn-container');
+        let button = document.querySelector('.glow-btn');
+        let interval;
+
+        let spawnDistance = 100;
+        function createParticles(){
+            let particles = document.createElement('div');
+            particles.classList.add('particles');
+            let btnWidth = button.offsetWidth;
+            let btnHeight = button.offsetHeight;
+
+            let angle = Math.random() * 2 * Math.PI;
+            let x = btnWidth / 2 + Math.cos(angle)*
+            spawnDistance;
+            let y = btnHeight / 2 + Math.sin(angle)*
+            spawnDistance;
+
+            let dx = Math.cos(angle) * 1000;
+            let dy = Math.sin(angle) * 1000;
+
+            particles.style.left = `${x}px`;
+            particles.style.top = `${y}px`;
+            particles.style.setProperty('--dx', `${dx}px`);
+            particles.style.setProperty('--dy', `${dy}px`);
+
+            btncontainer.appendChild(particles)
+            setTimeout(() => {
+                particles.remove()
+            },200000)
+        }
+
+        button.addEventListener('mouseenter', () => {
+            interval = setInterval(createParticles,80)
+        })
+        button.addEventListener('mouseleave', () => {
+           clearInterval(interval)
+        })
+    </script>
+
+
+     </div>
+     <script>
+        let body = document.querySelector('body');
+        function createParticle(x,y){
+            let particle = document.createElement('div');
+            particle.classList.add('particle');
+
+            particle.style.left = `${x}px`;
+            particle.style.top = `${y}px`;
+
+            let moveX = (Math.random() - 0.5) * 400;
+            let moveY = (Math.random() - 0.5) * 400;
+            
+            particle.style.setProperty('--move-x', `${moveX}px`);
+            particle.style.setProperty('--move-y', `${moveY}px`);
+
+            let size = Math.random() * 6 + 2;
+            particle.style.width= `${size}px`;
+            particle.style.height= `${size}px`;
+
+            let duration = Math.random() * 3+2;
+            particle.style.animationDuration = `${duration}s`;
+            body.appendChild(particle);
+            setTimeout(()=> particle.remove(),duration * 1000)
+        }
+        document.addEventListener('mousemove', (e) => {
+            createParticle(e.clientX,e.clientY);
+        })
+    </script>
+</body>
+</html>
